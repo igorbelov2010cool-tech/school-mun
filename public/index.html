@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>School MUN — пространство диалога</title>
+    <meta
+      name="description"
+      content="Откройте школьную Модель ООН. Найдите свой комитет, сравните повестки и подготовьтесь к первым дебатам."
+    />
+    <link rel="icon" href="favicon.svg" />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="committees.js"></script>
+    <script defer src="motion.js"></script>
+    <script defer src="app.js"></script>
+    <script defer src="navigation.js"></script>
+  </head>
+  <body>
+    <a class="skip" href="#committees">К комитетам</a>
+    <header>
+      <a class="brand" href="#home"
+        ><span class="brand-icon">M</span
+        ><span>SCHOOL <b>MUN</b><small>MODEL UNITED NATIONS</small></span></a
+      >
+      <nav aria-label="Навигация">
+        <a href="#about">О конференции</a><a href="#committees">Комитеты</a
+        ><a href="#prepare">Подготовка</a><a href="#faq">FAQ</a>
+      </nav>
+      <button class="button small light" data-quiz>Найти свой комитет</button>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="hero-content">
+          <p class="eyebrow">АЛМАТЫ · ШКОЛЬНАЯ МОДЕЛЬ ООН</p>
+          <h1>Разные взгляды.<br />Общее <em>будущее.</em></h1>
+          <p class="intro">
+            Примерь роль дипломата. Найди союзников.<br />Предложи решение,
+            которое услышат.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#committees">Выбрать комитет</a
+            ><button class="text-button" data-quiz>
+              Впервые на MUN? Начни здесь <span>↗</span>
+            </button>
+          </div>
+          <div class="hero-meta">
+            <span>6 комитетов</span><i></i><span>3 рабочих языка</span><i></i
+            ><span>Твой первый шаг в дипломатию</span>
+          </div>
+        </div>
+        <div class="hero-picture">
+          <img
+            src="hero.webp"
+            alt="Зал международных дипломатических заседаний"
+          />
+          <div class="image-caption">
+            <span>THE NEXT GENERATION<br />OF DIPLOMACY</span
+            ><span>01 / SCHOOL MUN</span>
+          </div>
+        </div>
+        <div class="hero-bottom">
+          <span>Слушать. Обсуждать. Договариваться.</span
+          ><span>ВЫБЕРИ СВОЁ НАПРАВЛЕНИЕ</span>
+        </div>
+      </section>
+      <section id="about" class="about wrap">
+        <p class="eyebrow blue">01 / ТОЧКА ВСТРЕЧИ</p>
+        <div>
+          <h2>Большие вопросы.<br />Твой голос в решении.</h2>
+          <p>
+            Модель ООН — конференция, где ты представляешь страну, а не только
+            своё мнение. Вместе с другими делегатами исследуешь мировые
+            проблемы, участвуешь в дебатах и создаёшь резолюции.
+          </p>
+          <div class="about-facts">
+            <span><b>01</b> Выбери повестку</span
+            ><span><b>02</b> Изучи позицию страны</span
+            ><span><b>03</b> Найди общее решение</span>
+          </div>
+        </div>
+      </section>
+      <section class="committees" id="committees">
+        <div class="wrap">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow blue">02 / ВЫБЕРИ СВОЁ НАПРАВЛЕНИЕ</p>
+              <h2>За каким столом будешь ты?</h2>
+            </div>
+            <button class="button outline" data-quiz>
+              Помогите выбрать <span>✦</span>
+            </button>
+          </div>
+          <p class="section-intro">
+            От глобального здоровья до международной безопасности.<br />Найди
+            тему, о которой тебе действительно хочется говорить.
+          </p>
+          <div class="filter-row">
+            <div class="pills" role="group" aria-label="Язык комитета">
+              <button class="active" data-lang="all" aria-pressed="true">
+                Все языки <span>6</span></button
+              ><button data-lang="RU" aria-pressed="false">Русский</button
+              ><button data-lang="EN" aria-pressed="false">English</button
+              ><button data-lang="KZ" aria-pressed="false">Қазақша</button>
+            </div>
+            <label class="level-label"
+              >Уровень
+              <select id="level">
+                <option value="all">Любой опыт</option>
+                <option value="beginner">Для новичков</option>
+                <option value="middle">Средний</option>
+                <option value="advanced">Продвинутый</option>
+              </select></label
+            >
+          </div>
+          <div class="result-line">
+            <span id="count" aria-live="polite">6 комитетов</span
+            ><span>Выбери до двух, чтобы сравнить</span>
+          </div>
+          <div id="cards" class="cards"></div>
+          <div id="empty" hidden class="empty">
+            <h3>Пока нет такого сочетания</h3>
+            <p>Выбери другой язык или уровень подготовки.</p>
+            <button class="button outline" id="reset">Сбросить фильтры</button>
+          </div>
+        </div>
+      </section>
+      <section class="quiz-banner wrap">
+        <div>
+          <p class="eyebrow">ТВОЯ ПЕРВАЯ КОНФЕРЕНЦИЯ?</p>
+          <h2>Не нужно знать всё.<br />Нужно с чего-то начать.</h2>
+          <p>
+            Три вопроса — и у тебя будет подходящий комитет<br />и понятный
+            первый шаг к подготовке.
+          </p>
+          <button class="button light" data-quiz>
+            Подобрать комитет <span>✦</span>
+          </button>
+        </div>
+        <div class="quote">
+          <span>“</span>
+          <blockquote>
+            Дипломатия начинается<br />с умения услышать<br />другую сторону.
+          </blockquote>
+          <p>SCHOOL MUN / НАШ ПОДХОД</p>
+        </div>
+      </section>
+      <section class="prepare wrap" id="prepare">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow blue">03 / ДО ПЕРВОГО ВЫСТУПЛЕНИЯ</p>
+            <h2>Приходи с идеями.<br />Остальное подготовим.</h2>
+          </div>
+          <p>
+            Сохрани личный прогресс подготовки.<br />Отметки останутся в этом
+            браузере.
+          </p>
+        </div>
+        <div class="prep-grid">
+          <div class="prep-list">
+            <label
+              ><input type="checkbox" data-check="topic" /><span
+                ><b>Разобраться в повестке</b
+                ><small
+                  >Прочитай описание комитета и выдели главные вопросы.</small
+                ></span
+              ><span>01</span></label
+            ><label
+              ><input type="checkbox" data-check="country" /><span
+                ><b>Изучить свою страну</b
+                ><small
+                  >После распределения найди её официальную позицию и
+                  союзников.</small
+                ></span
+              ><span>02</span></label
+            ><label
+              ><input type="checkbox" data-check="speech" /><span
+                ><b>Подготовить речь</b
+                ><small
+                  >Проблема, позиция страны и конкретное предложение — за
+                  минуту.</small
+                ></span
+              ><span>03</span></label
+            ><label
+              ><input type="checkbox" data-check="rules" /><span
+                ><b>Познакомиться с процедурой</b
+                ><small
+                  >Узнай, как просить слово, вносить поправки и
+                  голосовать.</small
+                ></span
+              ><span>04</span></label
+            >
+          </div>
+          <aside class="prep-note">
+            <span class="eyebrow blue">ТВОЙ ПРОГРЕСС</span
+            ><strong id="progress">0 / 4</strong>
+            <div class="progress-track"><div id="bar"></div></div>
+            <p id="progress-text">Первый шаг — выбрать интересную тему.</p>
+            <button class="text-button dark" id="download">
+              Скачать памятку .txt <span>↓</span>
+            </button>
+          </aside>
+        </div>
+      </section>
+      <section class="faq wrap" id="faq">
+        <div>
+          <p class="eyebrow blue">04 / ПЕРЕД СТАРТОМ</p>
+          <h2>Есть вопрос?</h2>
+          <p>Самое важное для будущего делегата.</p>
+        </div>
+        <div>
+          <details>
+            <summary>Можно участвовать без опыта?</summary>
+            <p>
+              Да. Начни с комитета уровня «Для новичков». Изучи повестку,
+              подготовь короткую речь и уточни правила у президиума. Не нужно
+              быть профессиональным оратором.
+            </p>
+          </details>
+          <details>
+            <summary>Обязательно говорить на английском?</summary>
+            <p>
+              Нет. Здесь представлены комитеты на русском, английском и
+              казахском языках. Рабочий язык указан на каждой карточке.
+            </p>
+          </details>
+          <details>
+            <summary>Как выбрать страну?</summary>
+            <p>
+              Страну обычно распределяют организаторы после регистрации. До
+              получения назначения можно изучать общую повестку, но позицию
+              страны нужно готовить уже после распределения.
+            </p>
+          </details>
+          <details>
+            <summary>Когда конференция и как зарегистрироваться?</summary>
+            <p>
+              Даты, место проведения и официальную ссылку на регистрацию
+              опубликует школа после утверждения программы. Пока можно выбрать
+              комитет и начать подготовку.
+            </p>
+          </details>
+          <details>
+            <summary>Какие правила действуют на дебатах?</summary>
+            <p>
+              Уважай участников, следуй указаниям председателя и обсуждай
+              позиции государств без личных нападок. Конкретный регламент и
+              требования к одежде нужно уточнить у организаторов.
+            </p>
+          </details>
+        </div>
+      </section>
+      <section class="closing">
+        <p class="eyebrow">МЕСТО ДЛЯ ТВОЕЙ ТОЧКИ ЗРЕНИЯ</p>
+        <h2>Мир меняется.<br /><em>Участвуй в разговоре.</em></h2>
+        <a class="button light" href="#committees">Найти свой комитет</a>
+      </section>
+    </main>
+    <footer class="wrap">
+      <a class="brand" href="#home"
+        ><span class="brand-icon">M</span
+        ><span>SCHOOL <b>MUN</b><small>MODEL UNITED NATIONS</small></span></a
+      >
+      <p>Алматы · Школьная модель ООН</p>
+      <a href="#home">На главную</a>
+    </footer>
+    <div class="compare-tray" id="tray" hidden>
+      <span id="compare-count">Выбрано: 0 / 2</span
+      ><button id="compare-open" class="button primary">Сравнить</button
+      ><button class="clear" id="compare-clear" aria-label="Очистить сравнение">
+        ×
+      </button>
+    </div>
+    <dialog id="dialog" aria-labelledby="dialog-title">
+      <button class="close" aria-label="Закрыть окно">×</button>
+      <div id="dialog-content" tabindex="-1"></div>
+    </dialog>
+    <div class="toast" id="toast" role="status" hidden></div>
+  </body>
+</html>
